@@ -11,9 +11,10 @@ main :: proc() {
 
 	rl.InitWindow(800, 600, "my window")
 
-	rl.SetTargetFPS(60)
+	rl.SetTargetFPS(30)
 
 	for !rl.WindowShouldClose() {
+		fmt.println("frame")
 		rl.BeginDrawing()
 		rl.ClearBackground(CORNFLOWER)
 		rl.EndDrawing()
