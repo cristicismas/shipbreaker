@@ -12,6 +12,8 @@ DEFAULT_RESOLUTION :: Vector2i{1920, 1080}
 GAME_NAME :: "Shipbreaker"
 SPRITE_SCALE :: 3
 FPS :: 60
+// Rotation degrees per frame
+ROTATION_SPEED :: 3
 
 ship_frame_timer: f32
 
@@ -30,7 +32,14 @@ main :: proc() {
 
 		ship_frame_timer += rl.GetFrameTime()
 		draw_ship(&ship)
-		ship.rotation += 1
+
+		if rl.IsKeyDown(rl.KeyboardKey.RIGHT) {
+			ship.rotation -= ROTATION_SPEED
+		}
+
+		if rl.IsKeyDown(rl.KeyboardKey.LEFT) {
+			ship.rotation += ROTATION_SPEED
+		}
 
 		rl.EndDrawing()
 	}

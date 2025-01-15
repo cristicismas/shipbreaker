@@ -41,14 +41,6 @@ draw_ship :: proc(ship: ^Ship) {
 		height = ship_height,
 	}
 
-	// handles scale, centers on both axis
-	dest_ship_rectangle := rl.Rectangle {
-		x      = screen_center.x,
-		y      = screen_center.y,
-		width  = ship_width * SPRITE_SCALE / f32(SHIP_FRAMES),
-		height = ship_height * SPRITE_SCALE,
-	}
-
 	// Destination rectangle (screen rectangle where drawing part of texture)
 	dest_rec := rl.Rectangle {
 		cast(f32)DEFAULT_RESOLUTION.x / 2,
